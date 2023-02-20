@@ -1,4 +1,25 @@
-# YOGA POSE DETECTION
+<!-- YOGA POSE DETECTION -->
+
+<div align="center">
+  <a href="https://github.com/David-Carballo/2023w-project-pose">
+    <img src="images/image1.png" alt="Logo" width="100" height="100">
+  </a>
+
+  <h1 align="center">YOGA POSE DETECTION</h1>
+
+  <p align="center">
+    A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/David-Carballo/2023w-project-pose">View Demo</a>
+    ·
+    <a href="https://github.com/David-Carballo/2023w-project-pose/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/David-Carballo/2023w-project-pose/issues">Request Feature</a>
+  </p>
+</div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
