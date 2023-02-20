@@ -43,3 +43,11 @@ Of course, no one template will serve all projects since your needs may be diffe
 Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GOALS -->
+## GOALS
+
+* Achieve a different solution to the classification task
+* Use pretrained models to generate data for later use
+* Learn how to create a dataset that fits the needs of the project
+* Create a "minimum viable product" that can be expanded upon in the future
