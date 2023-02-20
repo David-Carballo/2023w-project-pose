@@ -10,7 +10,7 @@
   <p align="center">
     A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="David-Carballo/2023w-project-pose"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/David-Carballo/2023w-project-pose">View Demo</a>
