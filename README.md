@@ -45,7 +45,7 @@ Use the `BLANK_README.md` to get started.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GOALS -->
-## GOALS
+## Goals
 
 * Achieve a different solution to the classification task
 * Use pretrained models to generate data for later use
