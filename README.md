@@ -40,8 +40,7 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
+### Introduction
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
 Here's why:
@@ -55,12 +54,41 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GOALS -->
-## Goals
+### Motivation
+
+<!-- DATASET -->
+## Dataset
+
 
 * Achieve a different solution to the classification task
 * Use pretrained models to generate data for later use
 * Learn how to create a dataset that fits the needs of the project
 * Create a "minimum viable product" that can be expanded upon in the future
 
-<!-- Dataset -->
+### Original Dataset
+
+### Custom Dataset
+
+<!-- ARCHMODELS -->
+## Architecture and Models
+### OpenPose
+### MobileNet
+### MultiLayer Perceptron (MLP)
+### Raw 
+### Final Classification Model
+
+<!-- HOW TO -->
+## How TO
+
+### Download Dataset
+### Extract Pose
+### MobileNet Model
+### MLP Model
+### RawData Model
+### Final Classification Model
+
+<!-- EXPERIMENTS -->
+## Experiments
+### Experiment1
+### Experiment2
+### Experiment3
