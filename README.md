@@ -12,14 +12,16 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Dataset</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#arch-models">Architecture and Models</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#openpose">OpenPpse</a></li>
+        <li><a href="#mobilenet">MobileNet</a></li>
+        <li><a href="#mlp">MLP</a></li>
+        <li><a href="#raw">Raw Data</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -56,3 +58,5 @@ Use the `BLANK_README.md` to get started.
 * Use pretrained models to generate data for later use
 * Learn how to create a dataset that fits the needs of the project
 * Create a "minimum viable product" that can be expanded upon in the future
+
+<!-- Dataset -->
