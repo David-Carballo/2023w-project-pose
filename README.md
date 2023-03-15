@@ -74,7 +74,7 @@ Use the `BLANK_README.md` to get started.
 ### OpenPose
 ### MobileNet
 ### MultiLayer Perceptron (MLP)
-### Raw 
+### RawData Model
 ### Final Classification Model
 
 <!-- HOW TO -->
@@ -93,4 +93,4 @@ Use the `BLANK_README.md` to get started.
 ### Experiment2
 ### Experiment3
 
-<p align="right">(<a href="#about-the-project">back to top</a>)</p>
+<p align="right">(<a href="#yoga-pose-detection">back to top</a>)</p>
