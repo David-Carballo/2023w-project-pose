@@ -8,7 +8,8 @@
   <h1 align="center">YOGA POSE DETECTION</h1>
 
   <p align="center">
-    A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter
+    A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter,
+    authored by **Marc Fort, Francisco Dueñas and David Carballo**. Advised by **Pol Caselles**
     <br />
     <a href="David-Carballo/2023w-project-pose"><strong>Explore the docs »</strong></a>
     <br />
