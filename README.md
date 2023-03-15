@@ -1,6 +1,6 @@
 # YOGA POSE DETECTION
 
-<img src="images/image1.png" width="256">
+<img src="images/image1.png" width="256" align="center">
 
 A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter,
     authored by **Marc Fort, Francisco Dueñas and David Carballo**. Advised by **Pol Caselles**
