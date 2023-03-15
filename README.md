@@ -12,7 +12,8 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Dataset</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#motivation">Motivation</a></li>
       </ul>
     </li>
     <li>
