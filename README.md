@@ -52,7 +52,7 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ### Motivation
 
@@ -92,3 +92,5 @@ Use the `BLANK_README.md` to get started.
 ### Experiment1
 ### Experiment2
 ### Experiment3
+
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
