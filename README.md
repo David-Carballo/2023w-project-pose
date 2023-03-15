@@ -16,6 +16,13 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
       </ul>
     </li>
     <li>
+      <a href="#dataset">Dataset</a>
+      <ul>
+        <li><a href="#original-dataset">Original Dataset</a></li>
+        <li><a href="#project-dataset">Project Dataset</a></li>
+      </ul>
+    </li>
+    <li>
       <a href="#arch-models">Architecture and Models</a>
       <ul>
         <li><a href="#openpose">OpenPpse</a></li>
@@ -24,12 +31,8 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
         <li><a href="#raw">Raw Data</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#how-to">How To</a></li>
+    <li><a href="#experiments">Experiments</a></li>
   </ol>
 </details>
 
