@@ -11,10 +11,6 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#motivation">Motivation</a></li>
-      </ul>
     </li>
     <li>
       <a href="#dataset">Dataset</a>
@@ -40,41 +36,56 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-### Introduction
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This is a repository to introduce in Body Pose Detection, more specifically to detect Yoga Postures. The goal of this project is to learn how to manage a Deep Learning project and provide a solution that allows to improve existent solutions. using [Yoga Postures Dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/yoga-posture-dataset)
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-
-
-### Motivation
+Goals:
+* Achieve a different solution to the classification task
+* Use pretrained models to generate data for later use
+* Learn how to create a custom dataset that fits the needs of the project
+* Create a "minimum viable product" that can be expanded upon in the future
 
 <!-- DATASET -->
 ## Dataset
 
-
-* Achieve a different solution to the classification task
-* Use pretrained models to generate data for later use
-* Learn how to create a dataset that fits the needs of the project
-* Create a "minimum viable product" that can be expanded upon in the future
+<p align="center">
+    <img src="images/dataset.png" />
+</p>
 
 ### Original Dataset
+In this case, we have got the [Yoga Postures Dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/yoga-posture-dataset) that consists in 2756 images distributed in 47 classes like as shown in the following figure:
 
-### Custom Dataset
+<p align="center">
+    <img src="images/newplot_0.png"/>
+</p>
+
+### Transformed Dataset
+
+To fit images with our models, we have applied different transformations and data augmentation techniques.
+* Resize tensor images to [255,255] and apply normalization with mean = [0.485, 0.456, 0.406] and std=[0.229, 0.224, 0.225]
+* Data augmentation (Probability): HorizontalFlip(50%), GaussianBlur(50%), HueSaturationValue(50%) and ColorJitter(50%)
+
+This dataset feed the EfficientNet Model.
+
+### Angles Dataset
+
+To obtain the angles of the extracted poses from the original dataset, first, we have used a pretrained Open Pose model to extract all poses in a key points tensor. After that, we have applied an algorithm to compute the angles that forms each pose and its feed our Multilayer Perceptron model.
 
 <!-- ARCHMODELS -->
 ## Architecture and Models
 ### OpenPose
-### MobileNet
+
+### EfficientNet
+
+Architecture of EfficientNet           |  EfficientNet baseline network
+:-------------------------:|:-------------------------:
+![](images/efficientnetarch1.png)  |  ![](images/efficientnetarch.PNG)
+
+
+
 ### MultiLayer Perceptron (MLP)
+
 ### RawData Model
+
 ### Final Classification Model
 
 <!-- HOW TO -->
