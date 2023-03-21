@@ -101,7 +101,6 @@ In order to download the Yoga Posture Dataset, go to its [Kaggle website page](h
 #### Option 2: Kaggle API Token
 If you want load the dataset in your Google Colab, you must follow the instructions on first section of [Angles MLP Model notebook](AnglesMLP.ipynb).
 ![](images/kaggle_token.PNG)
-<img src="images/kaggle_token.PNG" align="center">
 In order to use the Kaggle’s public API, you must first authenticate using an API token. From the site header, click on your user profile picture, then on “My Account” from the dropdown menu. This will take you to your account settings at https://www.kaggle.com/account. Scroll down to the section of the page labelled API:
 
 Kaggle API Token in Settings>Account>Create New API Token
