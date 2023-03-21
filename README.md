@@ -138,18 +138,72 @@ keypoints = estimator(img)
 ```
 
 How we can observe in the following image, each keypoint is a 2D coordinate on image.
-![](images/pose.png)
-|          ID  | Body Part  | ID | Body Part |  
-|:---------------:|:---------:|:-----:|:------:|
-| 0 | Head| 9 | Right Knee|
-| 1 | Neck| 10 | Right Foot|
-| 2 | Right Shoulder| 11 | Left Hip|
-| 3 | Right Elbow| 12 | Left Knee|
-| 4 | Right Hand| 13 | Left Foot|
-| 5 | Left Shoulder| 14 | Right Eye|
-| 6 | Left Elbow| 15 | Left Eye|
-| 7 | Left Hand| 16 | Right Ear|
-| 8 | Right Hip| 17 | Left Ear|
+
+<table>
+   <tr>
+      <td> ID </td>
+      <td> Body Part </td>
+      <td> ID </td>
+      <td> Body Part </td>
+      <td rowspan="11">
+        <img src="images/pose.png" width="300"/>
+     </td>
+   </tr>
+   <tr>
+      <td> 0 </td>
+      <td> Head </td>
+      <td> 9 </td>
+      <td> Right Knee </td>
+   </tr>
+   <tr>
+      <td> 1 </td>
+      <td> Neck </td>
+      <td> 10 </td>
+      <td> Right Foot </td>
+   </tr>
+   <tr>
+      <td> 2 </td>
+      <td> Right Shoulder </td>
+      <td> 11 </td>
+      <td> Left Hip </td>
+   </tr>
+   <tr>
+      <td> 3 </td>
+      <td> Right Elbow </td>
+      <td> 12 </td>
+      <td> Left Knee </td>
+   </tr>
+   <tr>
+      <td> 4 </td>
+      <td> Right Hand </td>
+      <td> 13 </td>
+      <td> Left Foot </td>
+   </tr>
+   <tr>
+      <td> 5 </td>
+      <td> Left Shoulder </td>
+      <td> 14 </td>
+      <td> Right Eye </td>
+   </tr>
+   <tr>
+      <td> 6 </td>
+      <td> Left Elbow </td>
+      <td> 15 </td>
+      <td> Left Eye </td>
+   </tr>
+   <tr>
+      <td> 7 </td>
+      <td> Left Hand </td>
+      <td> 16 </td>
+      <td> Right Ear </td>
+   </tr>
+   <tr>
+      <td> 8 </td>
+      <td> Right Hip </td>
+      <td> 17 </td>
+      <td> Right Ear </td>
+   </tr>
+</table>
 
 ### MLP Model
 
