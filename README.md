@@ -61,6 +61,7 @@ In this case, we have got the [Yoga Postures Dataset](https://www.kaggle.com/dat
     <img src="images/newplot_0.png"/>
 </p>
 
+
 ### Transformed Dataset
 
 To fit images with our models, we have applied different transformations and data augmentation techniques.
@@ -128,7 +129,21 @@ After that, upload the authentication token in your Google Colab files and follo
 ### How To Extract Pose Keypoints
 To extract image poses from datasets, we will use [Angles MLP Model notebook](AnglesMLP.ipynb). In this Colab, we find the *Compute Keypoints* section, where our code runs through all the images extracting their poses.
 
-
+```bash
+h 
+```
+![](images/pose.png)
+|          ID  | Body Part  | ID | Body Part |  
+|:---------------:|:---------:|:-----:|:------:|
+| 0 | Head| 9 | Right Knee|
+| 1 | Neck| 10 | Right Foot|
+| 2 | Right Shoulder| 11 | Left Hip|
+| 3 | Right Elbow| 12 | Left Knee|
+| 4 | Right Hand| 13 | Left Foot|
+| 5 | Left Shoulder| 14 | Right Eye|
+| 6 | Left Elbow| 15 | Left Eye|
+| 7 | Left Hand| 16 | Right Ear|
+| 8 | Right Hip| 17 | Left Ear|
 
 ### MLP Model
 
