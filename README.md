@@ -87,9 +87,9 @@ Architecture of EfficientNet           |  EfficientNet baseline network
 :-------------------------:|:-------------------------:
 ![](images/efficientnetarch1.png)  |  ![](images/efficientnetarch.PNG)
 
-
-
 ### MultiLayer Perceptron (MLP)
+
+![](images/mlp2.png)
 
 ### RawData Model
 
@@ -229,7 +229,7 @@ How we can observe in the following image, each keypoint is a 2D coordinate on i
 
 ### MLP Model
 
-!
+
 
 
 ### EfficientNet Model
