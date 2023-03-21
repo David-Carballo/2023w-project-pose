@@ -146,7 +146,7 @@ How we can observe in the following image, each keypoint is a 2D coordinate on i
       <td> ID </td>
       <td> Body Part </td>
       <td rowspan="11">
-        <img src="images/pose.png" width="300"/>
+        <img src="images/pose1.png" width="300"/>
      </td>
    </tr>
    <tr>
