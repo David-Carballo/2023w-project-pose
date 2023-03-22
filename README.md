@@ -743,4 +743,17 @@ The performance increase (outside of training accuracy) stalls at around Epoch 2
 
 2. The low amount of images provided by the dataset has shown to be a big obstacle through all the different stages of this project, to the point that, even with    techniques aimed at reducing overfitting, we could only slightly mitigate the problem.
 
+<!-- Metrics -->
+## Metrics
+In this section we include some additional metrics that have not been shown throughout the other sections.
+
+### CombinedMLP Heatmap
+![](images/heatmap.png)
+
+### Precision by class comparison between models
+![](images/precision.png)
+
+### Recall by class comparison between models
+![](images/recall.png)
+
 <p align="right">(<a href="#yoga-pose-detection">back to top</a>)</p>
