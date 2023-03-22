@@ -125,6 +125,10 @@ After the final hidden layer, the output layer applies the Log Softmax activatio
 
 Overall, the Combined MLP Model takes advantage of the strengths of both the EfficientNet Model and the MLP Model, allowing for more accurate and robust classification of complex data.
 
+<p align="center">
+  <img src="images/combined.png">
+</p>
+
 ___
 
 <!-- HOW TO -->
