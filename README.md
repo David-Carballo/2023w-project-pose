@@ -501,7 +501,236 @@ Epochs = 12
 Training Accuracy after training: 98.004
 Test Accuracy after training: 76.449
 
+Plot of train and val accuracy during training:
+![](images/accuracyimages.png)
+
 #### Conclusions
 By applying Batch Normalization, Dropout, weight_decay and a learning rate scheduler, we managed to increase the test accuracy slightly. However, the improvement was not very big and the difference between Training and Test accuracy was quite big, meaning that there was still overfitting. Given that data augmentation was already applied, the best ideal solution would be to obtain a larger amount of images to train the model with.
+
+### Combined MLP
+The original and main goal of this project was to take an image-based approach to the classification task for this dataset, and combine it with pose information to hopefully improve the performance. 
+
+To achieve this, we took the previously explained models and used their outputs as input for a final MLP that goes on to make the final classification.
+
+#### Hypothesis
+By training the EfficientNet and the AnglesMLP models separately, taking the features (before predictions) that these models output and then combining them to feed them into another MLP model, we can improve the test accuracy compared to the EfficientNet predictions.
+
+#### Setup
+Dataset:
+```
+class CombinedDataset(Dataset):
+    def __init__(self, dataset1, dataset2):
+        self.d1 = dataset1
+        self.d2 = dataset2
+    
+    def __getitem__(self, index):
+        img, label1 = self.d1.__getitem__(index)
+        angle, label2 = self.d2.__getitem__(index)
+
+        if label1 != label2:
+            print("[ERROR] Different labels with same index") 
+        
+        return img, angle, label1
+
+    def __len__(self):
+        if self.d1.__len__() != self.d2.__len__():
+            print("[ERROR] Different size of datasets") 
+        return len(self.d1)
+```
+
+CombinedMLP model:
+```
+class CombinedMLP(nn.Module):
+  def __init__(self, input_size, hidden_size, output_size):
+    super(CombinedMLP, self).__init__()
+    self.fc1 = nn.Linear(input_size, hidden_size)
+    self.relu = nn.ReLU()
+    self.batch = nn.BatchNorm1d(hidden_size)
+    self.drop1 = nn.Dropout(0.4)
+    self.fc2 = nn.Linear(hidden_size, hidden_size)
+    self.drop2 = nn.Dropout(0.4)
+    self.fc3 = nn.Linear(hidden_size, output_size)
+    self.logsoftmax = nn.LogSoftmax(dim = -1)
+
+  def forward(self, x):
+    out = self.fc1(x)
+    out = self.relu(out)
+    out = self.batch(out)
+    out = self.drop1(out)
+    out = self.fc2(out)
+    out = self.relu(out)
+    out = self.drop2(out)
+    out = self.fc3(out)
+    out = self.logsoftmax(out)
+
+    return out
+```
+```
+combined_mlp = CombinedMLP(input_size = 178, hidden_size = 100, output_size = num_classes)
+combined_mlp.to(device)
+```
+
+Criterion and Optimizer:
+```
+criterion = nn.NLLLoss()
+optimizer = optim.AdamW(
+    [
+        {"params": img_model.features.parameters(), "lr": 1e-5},
+        {"params": img_model.classifier.parameters(), "lr": 1e-4},
+        {"params": mlp.parameters(), "lr": 1e-3},
+        {"params": combined_mlp.parameters(), "lr": hparams['learning_rate']}
+    ],weight_decay = 1e-6)
+```
+
+Train loop:
+```
+def combined_train(model, optimizer, criterion, train_loader, val_loader, num_epochs):
+    for epoch in range(num_epochs):
+        model.train()  # set the model to training mode
+        img_model.train()
+        mlp.train()
+        train_loss = 0.0
+        train_total = 0
+        train_correct = 0
+
+        # iterate over the train_loader to get the model outputs and labels
+        for batch_idx, (images, angles, labels) in enumerate(train_loader):
+            images = images.to(device)
+            angles = angles.to(device)
+            labels = labels.to(device)
+            img_output = img_model(images)
+            mlp_output = mlp(angles)
+            combined_output = torch.cat((img_output, mlp_output), dim=1)
+
+            # feed the combined output to the model and compute the loss
+            optimizer.zero_grad()
+            logits = model(combined_output)
+            loss = criterion(logits, labels)
+
+            # compute gradients and update parameters
+            loss.backward()
+            optimizer.step()
+
+            # accumulate the training loss and accuracy
+            train_loss += loss.item()
+            _, predicted = torch.max(logits.data, 1)
+            train_total += labels.size(0)
+            train_correct += (predicted == labels).sum().item()
+
+        # compute the average training loss and accuracy for the epoch
+        train_loss /= len(train_loader)
+        train_accuracy = 100 * train_correct / train_total
+        print("Epoch {} - Training loss: {:.6f}, Training accuracy: {:.2f}%".format(epoch+1, train_loss, train_accuracy))
+
+        # validate the model on the validation set
+        val_loss, val_accuracy = combined_validate(model, criterion, val_loader)
+        print("Epoch {} - Validation loss: {:.6f}, Validation accuracy: {:.2f}%".format(epoch+1, val_loss, val_accuracy))
+```
+
+Validate loop:
+```
+def combined_validate(model, criterion, val_loader):
+    model.eval()  # set the model to evaluation mode
+    img_model.eval()
+    mlp.eval()
+    val_loss = 0.0
+    val_acc = 0.0
+
+    # disable gradient computation for validation
+    with torch.no_grad():
+        # iterate over the validation set to get the model outputs and labels
+        for batch_idx, (images, angles, labels) in enumerate(val_loader):
+            images = images.to(device)
+            angles = angles.to(device)
+            labels = labels.to(device)
+            img_output = img_model(images)
+            mlp_output = mlp(angles)
+            combined_output = torch.cat((img_output, mlp_output), dim=1)
+
+            # feed the combined output to the model and compute the loss
+            logits = model(combined_output)
+            loss = criterion(logits, labels)
+
+            # accumulate the validation loss
+            val_loss += loss.item()
+
+            # compute the validation accuracy
+            preds = torch.argmax(logits, dim=1)
+            val_acc += torch.sum(preds == labels).item()
+
+    # compute the average validation loss and accuracy
+    val_loss /= len(val_loader)
+    val_acc = (val_acc / len(val_loader.dataset)) * 100  # convert to percentage
+
+    return val_loss, val_acc
+```
+
+Test loop (with extra metrics):
+```
+def combined_test(model, criterion, test_loader):
+    model.eval()  # set the model to evaluation mode
+    img_model.eval()
+    mlp.eval()
+    test_loss = 0.0
+    test_acc = 0.0
+    preds_list = []
+    labels_list = []
+
+    # disable gradient computation for testing
+    with torch.no_grad():
+        # iterate over the test set to get the model outputs and labels
+        for batch_idx, (images, angles, labels) in enumerate(test_loader):
+            images = images.to(device)
+            angles = angles.to(device)
+            labels = labels.to(device)
+            img_output = img_model(images)
+            mlp_output = mlp(angles)
+            combined_output = torch.cat((img_output, mlp_output), dim=1)
+
+            # feed the combined output to the model and compute the loss
+            logits = model(combined_output)
+            loss = criterion(logits, labels)
+
+            # accumulate the test loss
+            test_loss += loss.item()
+
+            # compute the test accuracy
+            preds = torch.argmax(logits, dim=1)
+            preds_list.append(preds.cpu())
+            labels_list.append(labels.cpu())
+            test_acc += torch.sum(preds == labels).item()
+
+    preds = torch.cat(preds_list, dim=0)
+    labels = torch.cat(labels_list, dim=0)
+    cf_matrix = confusion_matrix(labels, preds)
+    df_cm = pd.DataFrame(cf_matrix / np.sum(cf_matrix, axis=1)[:, None], index=[i for i in classes],
+                         columns=[i for i in classes])
+    plt.figure(figsize=(32, 21))
+    sn.heatmap(df_cm, annot=True, cmap="Blues", square=True, fmt='.2f', xticklabels=sorted(list(poses_dict.keys())), yticklabels=sorted(list(poses_dict.keys())),
+                cbar=False)
+    report = classification_report(labels.cpu(), preds.cpu(), target_names=sorted(list(poses_dict.keys())))
+    print(report)
+
+    # compute the average test loss and accuracy
+    test_loss /= len(test_loader)
+    test_acc = (test_acc / len(test_loader.dataset)) * 100  # convert to percentage
+
+    return test_loss, test_acc
+```
+
+#### Results
+After 30 epochs of training:
+
+Train accuracy: 84.82%
+Val accuracy: 74.23%
+**Test accuracy: 76.81%**
+These results can vary by about 0-2% depending on the exact run
+
+#### Conclusions
+The performance increase (outside of training accuracy) stalls at around Epoch 21, with only very slightly higher values to using only the EfficientNet model. Having seen the low test performance from the AnglesMLP model, and high overfitting on both models, we can draw two main conclussions:
+
+1. An increase in the performance of the AnglesMLP could potentially mean an improvement in the test performance of the CombinedMLP model.
+
+2. The low amount of images provided by the dataset has shown to be a big obstacle through all the different stages of this project, to the point that, even with    techniques aimed at reducing overfitting, we could only slightly mitigate the problem.
 
 <p align="right">(<a href="#yoga-pose-detection">back to top</a>)</p>
