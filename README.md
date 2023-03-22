@@ -269,6 +269,7 @@ As we can observe in the following image, each keypoint is a 2D coordinate on im
 In order to be able to run the EfficientNet model we first need to import the model from Torchvision. For this project, we use the EfficientNetB3 model with pretrained weights from ImageNet.
 
 Next, we need to modify the final Sequential of the model so it is suited to our classification task with 47 classes, instead of the bigger number of classes in ImageNet.
+![](images/EfficientNet Code Structure.PNG)
 ### Final Classification Model
 
 <!-- EXPERIMENTS -->
