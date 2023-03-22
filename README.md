@@ -269,8 +269,15 @@ As we can observe in the following image, each keypoint is a 2D coordinate on im
 In order to be able to run the EfficientNet model we first need to import the model from Torchvision. For this project, we use the EfficientNetB3 model with pretrained weights from ImageNet.
 
 Next, we need to modify the final Sequential of the model so it is suited to our classification task with 47 classes, instead of the bigger number of classes in ImageNet.
-![](images/EfficientNet Code Structure.PNG)
+
+![](images/EfficientNet_Code_Structure.PNG)
+
+###Intermediate Feature extraction
+In order to obtain the features obtained by the model we need to take their output before the final Linear layer. To do this, we will cut the models after the penultimate Linear layer. We will also save a state_dict of both models before cutting so we can restore the parameters to their values post-training. After the slicing of the models, we have a loading state_dict cell.
+
+Important: **Do not run the slicing cell more than once or the rest of the notebook will not work**
 ### Final Classification Model
+For the final classification model, we will need a model that takes a concatenation of the previous 2 model's extracted features and processes them to generate a prediction. However
 
 <!-- EXPERIMENTS -->
 ## Experiments
