@@ -272,7 +272,7 @@ Next, we need to modify the final Sequential of the model so it is suited to our
 
 ![](images/EfficientNet_Code_Structure.PNG)
 
-###Intermediate Feature extraction
+### Intermediate Feature extraction
 In order to obtain the features obtained by the model we need to take their output before the final Linear layer. To do this, we will cut the models after the penultimate Linear layer. We will also save a state_dict of both models before cutting so we can restore the parameters to their values post-training. After the slicing of the models, we have a loading state_dict cell.
 
 Important: **Do not run the slicing cell more than once or the rest of the notebook will not work**
