@@ -54,7 +54,7 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a repository to introduce in Body Pose Detection, more specifically to detect Yoga Postures. The goal of this project is to learn how to manage a Deep Learning project and provide a solution that allows to improve existent solutions using [Yoga Postures Dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/yoga-posture-dataset)
+This is a repository to introduce into Body Pose Detection, more specifically to detect Yoga Postures. The goal of this project is to learn how to manage a Deep Learning project and provide a solution that allows to improve existent solutions using [Yoga Postures Dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/yoga-posture-dataset)
 
 Goals:
 * Achieve a different solution to the classification task
