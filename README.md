@@ -84,7 +84,7 @@ In this case, we have got the [Yoga Postures Dataset](https://www.kaggle.com/dat
 
 To fit images with our models, we have applied different transformations and data augmentation techniques.
 * Resize tensor images to [255,255] and apply normalization with mean = [0.485, 0.456, 0.406] and std=[0.229, 0.224, 0.225]
-* Data augmentation (Probability): HorizontalFlip(50%), GaussianBlur(50%), HueSaturationValue(50%) and ColorJitter(50%)
+* Data augmentation (with a 75% probability of being applied): HorizontalFlip(50%), GaussianBlur(50%), HueSaturationValue(50%) and ColorJitter(50%)
 
 This dataset feeds the EfficientNet Model.
 
