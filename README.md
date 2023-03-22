@@ -751,9 +751,9 @@ In this section we include some additional metrics that have not been shown thro
 ![](images/heatmap.png)
 
 ### Precision by class comparison between models
-![](images/precision.png)
+![](images/precision.PNG)
 
 ### Recall by class comparison between models
-![](images/recall.png)
+![](images/recall.PNG)
 
 <p align="right">(<a href="#yoga-pose-detection">back to top</a>)</p>
