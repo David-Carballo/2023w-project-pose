@@ -262,8 +262,13 @@ As we can observe in the following image, each keypoint is a 2D coordinate on im
 
 ### MLP Model
 
+To be able to run the model, first, we need to load the keypoints from the file [keypoints.csv](keypoints.csv) obtained from the instructions in the previous section.
 
+```
+load_keypoints = torch.load('keypoints')
+```
 
+After that, we can run all the cells to define the function that calculates the angles, the creation of the dataset, the creation of the MLP, and the functions train, validation and test.
 
 ### EfficientNet Model
 In order to be able to run the EfficientNet model we first need to import the model from Torchvision. For this project, we use the EfficientNetB3 model with pretrained weights from ImageNet.
@@ -334,6 +339,8 @@ class CombinedMLP(nn.Module):
 <!-- EXPERIMENTS -->
 ## Experiments
 ### Angles
+
+To test and improve our AngleMLP model, we have done different experiments from changing the way of obtaining the angles to applying Data Augmentation techniques. 
 
 #### Get Angles From Previous Keypoint
 
