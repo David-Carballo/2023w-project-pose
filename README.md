@@ -260,9 +260,10 @@ As we can observe in the following image, each keypoint is a 2D coordinate on im
    </tr>
 </table>
 
-### MLP Model
 
-> For this and the following sections it is necessary that you are using the [YogaPostureCV notebook](YogaPostureCV.ipynb)
+> For the following sections it is necessary that you are using the [YogaPostureCV notebook](YogaPostureCV.ipynb)
+
+### MLP Model
 
 To be able to run the model, first, we need to load the keypoints from the file [keypoints.csv](keypoints.csv) obtained from the instructions in the previous section.
 
