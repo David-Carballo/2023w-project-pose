@@ -347,6 +347,26 @@ Initially, MobileNetV3_Small was the chosen model for the image processing secti
 #### Hypothesis
 By running the same training loop and the same data through both models with the same classifier architecture, we can get the same accuracy in test with less training epochs.
 
+#### Setup
+MobilenetV3_Small: Default architecture except classifier, ImageNet pretrained weights.
+
+EfficientNetB3: Default architecture except classifier, ImageNet pretrained weights.
+
+Classifier architecture:
+```
+(classifier): Sequential(
+    (0): Linear(in_features=1536, out_features=50, bias=True)
+    (1): Linear(in_features=50, out_features=47, bias=True)
+    (2): LogSoftmax(dim=-1)
+```
+
+Criterion and Optimizer:
+```
+criterion = nn.NLLLoss()
+optimizer = optim.AdamW(model.parameters(), lr = 1e-4, weight_decay = 0.01)
+```
+
+
 #### Results
 MobilenetV3_Small:
 
@@ -363,6 +383,43 @@ Epochs: 6
 #### Conclusions
 We can reduce the number training epochs and, since every epoch takes a similar amount of time on both models, the time it takes to train the model to achieve a given test score.
 
-### Experiment3
+### EfficientNet Overfitting
+Initially, the EfficientNet model was experiencing big overfitting, with differences between train accuracy and val/test accuracy of around 20 percentage points, with test accuracy maxing out at around 73% after 12 Epochs of training even with Data Augmentation already applied.
+
+#### Hypothesis
+By applying techniques that help with overfitting, such as Dropout, Weight Decay, and modifying the Hidden layer Size, amongst others, we can increase test accuracy.
+
+#### Setup
+EfficientNetB3: Default architecture except classifier, ImageNet pretrained weights.
+
+Classifier architecture:
+```
+nn.Sequential(
+    nn.BatchNorm1d(1536, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True),
+    nn.Linear(in_features=1536, out_features=50, bias=True),
+    nn.Dropout(p=0.5, inplace=True),
+    nn.Linear(in_features=50, out_features=47, bias=True),
+    nn.LogSoftmax(dim = -1)
+)
+```
+
+Criterion, Optimizer and Scheduler:
+```
+criterion = nn.NLLLoss()
+optimizer = optim.AdamW(
+    [
+        {"params": img_model.features.parameters(), "lr": 1e-5},
+        {"params": img_model.classifier.parameters(), "lr": 1e-4},
+    ],weight_decay = 0.01)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
+```
+Epochs = 12
+
+#### Results
+Training Accuracy after training: 98.004
+Test Accuracy after training: 76.449
+
+#### Conclusions
+By applying Batch Normalization, Dropout, weight_decay and a learning rate scheduler, we managed to increase the test accuracy slightly. However, the improvement was not very big and the difference between Training and Test accuracy was quite big, meaning that there was still overfitting. Given that data augmentation was already applied, the best ideal solution would be to obtain a larger amount of images to train the model with.
 
 <p align="right">(<a href="#yoga-pose-detection">back to top</a>)</p>
