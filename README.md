@@ -68,7 +68,7 @@ To fit images with our models, we have applied different transformations and dat
 * Resize tensor images to [255,255] and apply normalization with mean = [0.485, 0.456, 0.406] and std=[0.229, 0.224, 0.225]
 * Data augmentation (Probability): HorizontalFlip(50%), GaussianBlur(50%), HueSaturationValue(50%) and ColorJitter(50%)
 
-This dataset feed the EfficientNet Model.
+This dataset feeds the EfficientNet Model.
 
 ### Angles Dataset
 
