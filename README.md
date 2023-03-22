@@ -472,7 +472,7 @@ Test Acc: 70.510
 Epochs: 6
 
 #### Conclusions
-We can reduce the number training epochs and, since every epoch takes a similar amount of time on both models, the time it takes to train the model to achieve a given test score.
+We can reduce the number of training epochs and, since every epoch takes a similar amount of time on both models, the time it takes to train the model to achieve a given test score.
 
 ### EfficientNet Overfitting
 Initially, the EfficientNet model was experiencing big overfitting, with differences between train accuracy and val/test accuracy of around 20 percentage points, with test accuracy maxing out at around 73% after 12 Epochs of training even with Data Augmentation already applied.
