@@ -433,7 +433,7 @@ Plot of train and val accuracy during training:
 As we have seen, increasing some noise did improve the model, but having such a limited dataset and not having extracted all the poses with their necessary key points, we have a model that does not work properly.
 
 ### EfficientNet vs MobileNet
-Initially, MobileNetV3_Small was the chosen model for the image processing section of this project due to it's lightweight design, however, while exploring other notebooks uploaded to Kaggle using the same dataset, we discovered that we could get a similar performance with less training epochs (and time).
+Initially, MobileNetV3_Small was the chosen model for the image processing section of this project due to it's lightweight design, however, while exploring other notebooks uploaded to Kaggle using the same dataset, we discovered that by using EfficientNetB3 we could get a similar performance with fewer training epochs (and time).
 
 #### Hypothesis
 By running the same training loop and the same data through both models with the same classifier architecture, we can get the same accuracy in test with less training epochs.
