@@ -345,7 +345,7 @@ The support is the number of samples of the true response that lie in that class
 Initially, MobileNetV3_Small was the chosen model for the image processing section of this project due to it's lightweight design, however, while exploring other notebooks uploaded to Kaggle using the same dataset, we discovered that we could get a similar performance with less training epochs (and time).
 
 #### Hypothesis
-By running the same training loop through both models with the same classifier architecture, we can get the same accuracy in test with less training epochs.
+By running the same training loop and the same data through both models with the same classifier architecture, we can get the same accuracy in test with less training epochs.
 
 #### Results
 MobilenetV3_Small:
