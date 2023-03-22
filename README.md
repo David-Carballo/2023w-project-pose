@@ -369,19 +369,26 @@ One of the first approaches we used to calculate angles from the extracted keypo
 
 However, we realized that this approach did not adequately represent the yoga pose because we could obtain similar representations for completely different poses.
 
-![] (images/angles_v1)
+<p align="center">
+  <img src="images/angles1.png" width="300">
+</p>
+
 
 #### Get Angles From Reference Vector
 
 The next approach we tested was to calculate the angles formed by each connection with a reference vector connecting the neck key point to the hip center. This improved the difference between poses a bit, but we still had problems, for example, in a posture where the person was standing or lying down.
 
-![] (images/angles_v1)
+<p align="center">
+  <img src="images/angles2.PNG">
+</p>
 
 #### Get Angles From Previous Vector
 
 Therefore, we used an approach similar to those used in robotics to calculate the movement of joints in a chain kinematics. This allowed us to represent the angle of a joint as a reference to the previous joints, giving us a more accurate representation of each pose. To do this, we first calculated an initial vector that served as a reference to determine if the pose was standing or lying down, and then we traversed the joints of the whole body, calculating the angle that they formed.
 
-![] (images/angles_v1)
+<p align="center">
+  <img src="images/angles3.PNG">
+</p>
 
 #### Angles Overfitting
 
@@ -413,11 +420,13 @@ But in this case, we saw that overfitting was still appearing and the model was 
 
 #### Results
 
-![](images/accuracyangles.png)
-
 Training Accuracy: 82,698%
 
 Test Accuracy: 42,02%
+
+Plot of train and val accuracy during training:
+
+![](images/accuracyangles.png)
 
 #### Conclusions
 
@@ -502,6 +511,7 @@ Training Accuracy after training: 98.004
 Test Accuracy after training: 76.449
 
 Plot of train and val accuracy during training:
+
 ![](images/accuracyimages.png)
 
 #### Conclusions
