@@ -334,13 +334,67 @@ class CombinedMLP(nn.Module):
 <!-- EXPERIMENTS -->
 ## Experiments
 ### Angles
-#### Get Angles From Previous Connection
-#### Get Angles From Reference Vector
-#### Get Angles From Previous Vector
-#### Metrics
-F1-score gives you the harmonic mean of precision and recall. The scores corresponding to every class will tell you the accuracy of the classifier in classifying the data points in that particular class compared to all other classes.
 
-The support is the number of samples of the true response that lie in that class.
+#### Get Angles From Previous Keypoint
+
+One of the first approaches we used to calculate angles from the extracted keypoints was to calculate the angle of each keypoint with respect to the previous keypoint. That is, as each connection consists of two points A and B, we placed the center of coordinates at point A and calculated the angle of the vector formed by AB.
+
+However, we realized that this approach did not adequately represent the yoga pose because we could obtain similar representations for completely different poses.
+
+![] (images/angles_v1)
+
+#### Get Angles From Reference Vector
+
+The next approach we tested was to calculate the angles formed by each connection with a reference vector connecting the neck key point to the hip center. This improved the difference between poses a bit, but we still had problems, for example, in a posture where the person was standing or lying down.
+
+![] (images/angles_v1)
+
+#### Get Angles From Previous Vector
+
+Therefore, we used an approach similar to those used in robotics to calculate the movement of joints in a chain kinematics. This allowed us to represent the angle of a joint as a reference to the previous joints, giving us a more accurate representation of each pose. To do this, we first calculated an initial vector that served as a reference to determine if the pose was standing or lying down, and then we traversed the joints of the whole body, calculating the angle that they formed.
+
+![] (images/angles_v1)
+
+#### Angles Overfitting
+
+As we had images where OpenPose had not correctly extracted the poses, which resulted in poses with very few or non-existent key points, and we also had a dataset with some classes with few images, this caused overfitting to occur when training our angle model.
+
+#### Hypothesis
+
+To solve this problem, we believed that applying Data Augmentation by adding some noise to the angles and removing those poses and classes that did not provide enough data would result in a model that would better generalize to unseen angles.
+
+#### Setup
+
+To apply noise by adding an alpha value to the angle tensor with a probability of 75%.
+```
+if prob < 0.75:
+        n = random.uniform(-alpha,alpha) * math.pi / 180
+        angles = angles + n
+```
+With this solution, our model increased its accuracy by around 5%, while also reducing overfitting to some extent.
+
+To eliminate angles and classes that do not provide sufficient information:
+```
+for i in range(0,len(angles)): 
+        if torch.count_nonzero(angles[i]) > 0:
+        new_angles.append(angles[i])
+        new_labels.append(self.labels[i])
+```
+
+But in this case, we saw that overfitting was still appearing and the model was not improving much, so we decided not to use this option.
+
+#### Results
+
+![](images/accuracyangles.png)
+
+Training Accuracy: 82,698%
+
+Test Accuracy: 42,02%
+
+#### Conclusions
+
+As we have seen, increasing some noise did improve the model, but having such a limited dataset and not having extracted all the poses with their necessary key points, we have a model that does not work properly.
+
 ### EfficientNet vs MobileNet
 Initially, MobileNetV3_Small was the chosen model for the image processing section of this project due to it's lightweight design, however, while exploring other notebooks uploaded to Kaggle using the same dataset, we discovered that we could get a similar performance with less training epochs (and time).
 
