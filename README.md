@@ -36,7 +36,7 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a repository to introduce in Body Pose Detection, more specifically to detect Yoga Postures. The goal of this project is to learn how to manage a Deep Learning project and provide a solution that allows to improve existent solutions. using [Yoga Postures Dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/yoga-posture-dataset)
+This is a repository to introduce in Body Pose Detection, more specifically to detect Yoga Postures. The goal of this project is to learn how to manage a Deep Learning project and provide a solution that allows to improve existent solutions using [Yoga Postures Dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/yoga-posture-dataset)
 
 Goals:
 * Achieve a different solution to the classification task
@@ -80,6 +80,12 @@ ___
 <!-- ARCHMODELS -->
 ## Architecture and Models
 ### OpenPose
+
+OpenPose is a deep learning-based approach for estimating the 2D and 3D pose of a human body from a single image or video. OpenPose works by first detecting body parts such as the head, torso, arms, and legs using a convolutional neural network (CNN). It then associates the detected body parts into body joints and estimates the pose of the body.
+
+The model is trained on large datasets of annotated images and videos, making it robust to different lighting conditions, camera angles, and body shapes. OpenPose can be used in a variety of applications such as motion tracking, augmented reality, human-computer interaction, and animation.
+
+![](openpose.png)
 
 ### EfficientNet
 
