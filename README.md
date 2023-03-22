@@ -269,15 +269,67 @@ As we can observe in the following image, each keypoint is a 2D coordinate on im
 In order to be able to run the EfficientNet model we first need to import the model from Torchvision. For this project, we use the EfficientNetB3 model with pretrained weights from ImageNet.
 
 Next, we need to modify the final Sequential of the model so it is suited to our classification task with 47 classes, instead of the bigger number of classes in ImageNet.
-
-![](images/EfficientNet_Code_Structure.PNG)
+```
+img_model = torchvision.models.efficientnet_b3(weights='DEFAULT')
+#Substitution of the model's classifier so it predicts between the 47 classes of the Dataset instead of the 1000 of Imagenet, along with other changes to combat Overfitting
+img_model.classifier = nn.Sequential(
+    nn.BatchNorm1d(1536, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True),
+    nn.Linear(in_features=1536, out_features=50, bias=True),
+    nn.Dropout(p=0.5, inplace=True),
+    nn.Linear(in_features=50, out_features=47, bias=True),
+    nn.LogSoftmax(dim = -1) 
+```
 
 ### Intermediate Feature extraction
 In order to obtain the features obtained by the model we need to take their output before the final Linear layer. To do this, we will cut the models after the penultimate Linear layer. We will also save a state_dict of both models before cutting so we can restore the parameters to their values post-training. After the slicing of the models, we have a loading state_dict cell.
 
 Important: **Do not run the slicing cell more than once or the rest of the notebook will not work**
+
+```
+torch.save(img_model.state_dict(), '/content/img_model_state_dict')
+torch.save(mlp.state_dict(), '/content/angle_mlp_state_dict')
+```
+```
+###WARNING: DO NOT RUN THIS CELL MORE THAN ONCE OR THE REST OF THE NOTEBOOK WILL NOT WORK
+img_model.classifier = img_model.classifier[:-3]
+mlp = nn.Sequential(*(list(mlp.children())[:-2]))
+
+mlp.to(device)
+img_model.to(device)
+```
+```
+img_model.load_state_dict(torch.load('/content/img_model_state_dict'), strict = False)
+mlp.load_state_dict(torch.load('/content/angle_mlp_state_dict'), strict = False)
+```
+
 ### Final Classification Model
-For the final classification model, we will need a model that takes a concatenation of the previous 2 model's extracted features and processes them to generate a prediction. However
+For the final classification model, we will need a model that takes a concatenation of the previous 2 models' extracted features and processes them to generate a prediction. In order to do this, we will need an input size that is the sum of the lengths of both outputs, and an output size that is equal to the number of classes. If we want this model to work correctly, we need to make sure the input given to the 2 previous models is the same.
+```
+class CombinedMLP(nn.Module):
+  def __init__(self, input_size, hidden_size, output_size):
+    super(CombinedMLP, self).__init__()
+    self.fc1 = nn.Linear(input_size, hidden_size)
+    self.relu = nn.ReLU()
+    self.batch = nn.BatchNorm1d(hidden_size)
+    self.drop1 = nn.Dropout(0.4)
+    self.fc2 = nn.Linear(hidden_size, hidden_size)
+    self.drop2 = nn.Dropout(0.4)
+    self.fc3 = nn.Linear(hidden_size, output_size)
+    self.logsoftmax = nn.LogSoftmax(dim = -1)
+
+  def forward(self, x):
+    out = self.fc1(x)
+    out = self.relu(out)
+    out = self.batch(out)
+    out = self.drop1(out)
+    out = self.fc2(out)
+    out = self.relu(out)
+    out = self.drop2(out)
+    out = self.fc3(out)
+    out = self.logsoftmax(out)
+
+    return out
+```
 
 <!-- EXPERIMENTS -->
 ## Experiments
@@ -290,7 +342,27 @@ F1-score gives you the harmonic mean of precision and recall. The scores corresp
 
 The support is the number of samples of the true response that lie in that class.
 ### EfficientNet vs MobileNet
-#### Metrics
+Initially, MobileNetV3_Small was the chosen model for the image processing section of this project due to it's lightweight design, however, while exploring other notebooks uploaded to Kaggle using the same dataset, we discovered that we could get a similar performance with less training epochs (and time).
+
+#### Hypothesis
+By running the same training loop through both models with the same classifier architecture, we can get the same accuracy in test with less training epochs.
+
+#### Results
+MobilenetV3_Small:
+
+Test Acc: 68.372
+
+Epochs: 10
+
+EfficientNetB3:
+
+Test Acc: 70.510
+
+Epochs: 6
+
+#### Conclusions
+We can reduce the number training epochs and, since every epoch takes a similar amount of time on both models, the time it takes to train the model to achieve a given test score.
+
 ### Experiment3
 
 <p align="right">(<a href="#yoga-pose-detection">back to top</a>)</p>
