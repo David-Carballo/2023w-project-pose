@@ -180,7 +180,7 @@ After that, upload the authentication token in your Google Colab files and follo
 ### How To Extract Pose Keypoints [Optional]
 To extract image poses from datasets, we will use [Angles MLP Model notebook](AnglesMLP.ipynb). In this Colab, we find the *Compute Keypoints* section, where our code runs through all the images extracting their poses.
 
-First, you need download and install the OpenPose Model from Github and then, the pretrained model extract a [1,18,3] keypoints tensor that represent a pose of a human detected in the image. 
+First, you need to download and install the OpenPose Model from Github and then, the pretrained model extract a [1,18,3] keypoints tensor that represent a pose of a human detected in the image. 
 
 ```bash
 # Simplified code of keypoints extraction
