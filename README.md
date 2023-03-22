@@ -16,20 +16,38 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
       <a href="#dataset">Dataset</a>
       <ul>
         <li><a href="#original-dataset">Original Dataset</a></li>
-        <li><a href="#project-dataset">Project Dataset</a></li>
+        <li><a href="#transformed-dataset">Transformed Dataset</a></li>
+        <li><a href="#angles-dataset">Angles Dataset</a></li>
       </ul>
     </li>
     <li>
       <a href="#arch-models">Architecture and Models</a>
       <ul>
         <li><a href="#openpose">OpenPose</a></li>
-        <li><a href="#mobilenet">MobileNet</a></li>
-        <li><a href="#mlp">MLP</a></li>
-        <li><a href="#raw">Raw Data</a></li>
+        <li><a href="#efficientnetb3">EfficientNetB3</a></li>
+        <li><a href="#multilayer-perceptron">MultiLayer Perceptron</a></li>
+        <li><a href="#combined-model">Combined Model</a></li>
       </ul>
     </li>
-    <li><a href="#how-to">How To</a></li>
-    <li><a href="#experiments">Experiments</a></li>
+    <li>
+      <a href="#how-to">How To</a>
+      <ul>
+        <li><a href="#how-to-download-dataset">How To Download Dataset</a></li>
+        <li><a href="#how-to-extract-pose-keypoints">How To Extract Pose Keypoints</a></li>
+        <li><a href="#mlp-model">MLP Model</a></li>
+        <li><a href="#efficientnet-model">EfficientNet Model</a></li>
+        <li><a href="#intermediate-feature-extraction">Intermediate Feature extraction</a></li>
+        <li><a href="#final-classification-model">Final Classification Model</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#experiments">Experiments</a>
+        <ul>
+        <li><a href="#angles">Angles</a></li>
+        <li><a href="#efficientnet-vs-mobilenet">EfficientNet vs MobileNet</a></li>
+        <li><a href="#efficientnet-overfitting">EfficientNet Overfitting</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
 
