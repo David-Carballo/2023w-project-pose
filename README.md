@@ -192,7 +192,7 @@ keypoints = estimator(img)
 
 ```
 
-How we can observe in the following image, each keypoint is a 2D coordinate on image.
+As we can observe in the following image, each keypoint is a 2D coordinate on image.
 
 <table>
    <tr>
@@ -266,7 +266,9 @@ How we can observe in the following image, each keypoint is a 2D coordinate on i
 
 
 ### EfficientNet Model
+In order to be able to run the EfficientNet model we first need to import the model from Torchvision. For this project, we use the EfficientNetB3 model with pretrained weights from ImageNet.
 
+Next, we need to modify the final Sequential of the model so it is suited to our classification task with 47 classes, instead of the bigger number of classes in ImageNet.
 ### Final Classification Model
 
 <!-- EXPERIMENTS -->
