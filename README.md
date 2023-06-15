@@ -1,4 +1,4 @@
-# YOGA POSE DETECTION - MODEL COMPARATIVE
+# YOGA POSE DETECTION - INCEPTIONV3 IMPROVEMENT
 
 <img src="images/image1.png" width="128" align="right">
 
