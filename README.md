@@ -4,7 +4,11 @@
 
 A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter,
     authored by **Marc Fort, Francisco Dueñas and David Carballo**. Advised by **Pol Caselles**
-
+Seleccionar una red neuronal diferente a la de EfficientNetB3, y entrenarla
+para conseguir resultados similares. 
+ Deberías hacer un repaso a los modelos
+ ver los pros/contras de cada uno y seleccionar un modelo adecuado.
+ 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
