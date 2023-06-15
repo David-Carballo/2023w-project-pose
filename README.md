@@ -123,6 +123,15 @@ Architecture of EfficientNet           |  EfficientNet baseline network
 :-------------------------:|:-------------------------:
 ![](images/efficientnetarch1.png)  |  ![](images/efficientnetarch.PNG)
 
+### InceptionV3
+descripcion tarea pendiente
+ ![](images/inceptionv3onc--oview.png)
+ 
+porque elegimos esta red:
+efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
+Inception al comnibar disitnas configuraciones de redes en una sola, cupla con este desociron, y vamos acomprobar los resutlados de los enttrenamisto si uen efecti uanr ed mas compelta es mas precisa.
+
+
 ### MultiLayer Perceptron
 
 A Multi-Layer Perceptron (MLP) is a type of neural network that consists of multiple layers of neurons, each layer connected to the next layer. In this case, the MLP takes 13 angles as input and classifies them into 47 yoga posture classes.
@@ -741,12 +750,19 @@ Val accuracy: 74.23%
 **Test accuracy: 76.81%**
 These results can vary by about 0-2% depending on the exact run
 
+### InceptionV3 results
+fretne al 76 % de preciosion, efficencet que apenas pudo mejorar elsistema combinada ( con lo que deducioms que modelo combiando con poenpose no aportea valor) hemos conseguido alcanzar con uinceptio un 86% de preciosn , una considerable mejora del 10% en 10  eopcas para el mismo dataset
+
 #### Conclusions
 The performance increase (outside of training accuracy) stalls at around Epoch 21, with only very slightly higher values to using only the EfficientNet model. Having seen the low test performance from the AnglesMLP model, and high overfitting on both models, we can draw two main conclussions:
 
 1. An increase in the performance of the AnglesMLP could potentially mean an improvement in the test performance of the CombinedMLP model.
 
 2. The low amount of images provided by the dataset has shown to be a big obstacle through all the different stages of this project, to the point that, even with    techniques aimed at reducing overfitting, we could only slightly mitigate the problem.
+
+### InceptionV3 consucion
+Tras realizar el experimiento con uanr red mas compe,lta,  verificamos que labaja preciosn no se debe solo a la cantaidad de datos, y al overfitting,
+Esta claro,imveptopn esta sindo capaz de generaliza con la misma cantidad de datos mejor.
 
 <!-- Metrics -->
 ## Metrics
