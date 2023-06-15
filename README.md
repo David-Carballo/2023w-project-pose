@@ -1,4 +1,4 @@
-# YOGA POSE DETECTION
+# YOGA POSE DETECTION - MODEL COMPARATIVE
 
 <img src="images/image1.png" width="128" align="right">
 
