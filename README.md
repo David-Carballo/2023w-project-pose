@@ -123,6 +123,9 @@ Architecture of EfficientNet           |  EfficientNet baseline network
 :-------------------------:|:-------------------------:
 ![](images/efficientnetarch1.png)  |  ![](images/efficientnetarch.PNG)
 
+### Redes alternativas a EfficientNet
+descirpción y a continuacion cual es la que seleccionamos
+
 ### InceptionV3
 descripcion tarea pendiente
  ![](images/inceptionv3onc--oview.png)
