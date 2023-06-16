@@ -170,8 +170,7 @@ Alternativas a EfficientNetB3, algunas opciones de modelos de redes neuronales c
 Red seleccionada:
 
 ### InceptionV3
-descripcion tarea pendiente
- ![](images/inceptionv3onc--oview.png)
+ ![](images/inceptionv3_arch.png)
 
 InceptionV3 es una arquitectura de red neuronal convolucional que fue desarrollada por Google como parte de la serie de modelos Inception. Fue diseñada específicamente para tareas de clasificación y detección de objetos en imágenes.
 
