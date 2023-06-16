@@ -193,6 +193,38 @@ EfficientNet vs InceptionV3
 Why we chose this network:
 EfficientNet is optimized for low memory usage and fast inference, both of which are not requirements of the system, and a good accuracy is more important, which is what we have sought by attempting to merge different models. Therefore, we are going to use a deeper model with a more comprehensive combination of hyperparameters.
 
+Pros and Cons EfficientNetB3 vs InceptionV3:
+
+Both EfficientNetB3 and InceptionV3 are widely used convolutional neural network models with good performance in computer vision tasks. Here's a comparison of the pros and cons of EfficientNetB3 and InceptionV3:
+
+* Pros of EfficientNetB3:
+
+Efficiency in terms of performance: EfficientNetB3 is part of the EfficientNet family, which is specifically designed to achieve a good balance between performance and computational efficiency. These models typically have fewer parameters and operations compared to other architectures, making them more efficient in terms of training and deployment speed.
+
+Better performance on large datasets: EfficientNetB3 has demonstrated outstanding performance on large datasets such as ImageNet, achieving high classification accuracy.
+
+Scalability: The EfficientNet family offers a scale of pre-trained models (B0, B1, B2, B3, ...) that adapt to different available computational resources. This allows you to select the model that best suits your needs based on the available resources.
+
+* Cons of EfficientNetB3:
+
+Requires more computational resources: Although EfficientNetB3 is more efficient compared to many previous architectures, it may still require more computational resources than lighter models. If resources are limited, EfficientNetB3 may not be the best choice.
+
+* Pros of InceptionV3:
+
+Good ability to capture features at different scales: InceptionV3 uses parallel convolutional filters of different sizes, allowing it to capture contextual information at different scales. This can be beneficial in tasks that require object detection at different sizes or levels of detail.
+
+Widely adopted and tested: InceptionV3 has been used and evaluated in various tasks and datasets, demonstrating solid performance in image classification and object detection.
+
+* Cons of InceptionV3:
+
+Higher computational complexity: InceptionV3 tends to have more parameters and operations compared to newer and more efficient models, leading to higher computational resource consumption and memory requirements.
+
+Higher risk of overfitting: Due to its higher capacity and complexity, InceptionV3 can be more prone to overfitting, especially on smaller datasets. Careful fine-tuning or additional regularization techniques may be needed to avoid overfitting.
+
+Ultimately, the choice between EfficientNetB3 and InceptionV3 depends on your specific needs, available computational resources, and the dataset you're working with. It's recommended to experiment and evaluate both models on your specific task to determine which one better suits your requirements.
+
+## InceptionV3 Architecture:
+
 Inception, by combining different network configurations into one, aligns with this requirement, and we are going to verify through training results if using a more comprehensive model leads to greater accuracy.
 
 The architecture of InceptionV3 is a deep convolutional neural network consisting of multiple layers and modules. Here is an overview of the InceptionV3 architecture:
