@@ -187,6 +187,7 @@ Guía avanzada de Inception v3
 https://cloud.google.com/tpu/docs/inception-v3-advanced?hl=es-419
   
 EfficientNet vs InceptionV3
+
 porque elegimos esta red:
 efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
 Inception al comnibar disitnas configuraciones de redes en una sola, cupla con este desociron, y vamos acomprobar los resutlados de los enttrenamisto si uen efecti uanr ed mas compelta es mas precisa.
