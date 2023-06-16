@@ -225,7 +225,7 @@ Ultimately, the choice between EfficientNetB3 and InceptionV3 depends on your sp
 
 ## InceptionV3 Architecture:
 
- ![](images/inceptionv3_arch.png)
+ ![](images/inceptionV3_arch.png)
 
 Inception, by combining different network configurations into one, aligns with this requirement, and we are going to verify through training results if using a more comprehensive model leads to greater accuracy.
 
