@@ -65,6 +65,8 @@ Goals:
 * Learn how to create a custom dataset that fits the needs of the project
 * Create a "minimum viable product" that can be expanded upon in the future
 
+Branch goal:
+* Seleccionar una red neuronal diferente a la de EfficientNetB3, y entrenarla para conseguir resultados similares
 ___
 
 
@@ -121,17 +123,6 @@ Architecture of EfficientNet           |  EfficientNet baseline network
 :-------------------------:|:-------------------------:
 ![](images/efficientnetarch1.png)  |  ![](images/efficientnetarch.PNG)
 
-### Redes alternativas a EfficientNet
-descirpción y a continuacion cual es la que seleccionamos
-
-### InceptionV3
-descripcion tarea pendiente
- ![](images/inceptionv3onc--oview.png)
- 
-porque elegimos esta red:
-efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
-Inception al comnibar disitnas configuraciones de redes en una sola, cupla con este desociron, y vamos acomprobar los resutlados de los enttrenamisto si uen efecti uanr ed mas compelta es mas precisa.
-
 
 ### MultiLayer Perceptron
 
@@ -161,6 +152,42 @@ Overall, the Combined MLP Model takes advantage of the strengths of both the Eff
 <p align="center">
   <img src="images/combined.png">
 </p>
+
+### Redes alternativas a EfficientNet
+descirpción y a continuacion cual es la que seleccionamos
+Alternativas a EfficientNetB3, algunas opciones de modelos de redes neuronales convolucionales:
+
+* ResNet50: Es parte de la familia ResNet y utiliza conexiones residuales para permitir el entrenamiento profundo. ResNet50 es un modelo relativamente profundo con 50 capas y ha demostrado un rendimiento sobresaliente en tareas de clasificación de imágenes.
+
+* VGG16: Es un modelo que se caracteriza por su simplicidad y su profundidad. VGG16 consta de 16 capas convolucionales y utiliza filtros de 3x3 con pequeños pasos para aprender características en las imágenes. Aunque es un modelo más pesado en términos de parámetros, ha sido ampliamente utilizado y es conocido por su rendimiento.
+
+* DenseNet121: Es parte de la familia DenseNet y se basa en la idea de conexiones densas. En lugar de sumar o concatenar características como en ResNet, DenseNet121 concatena características de todas las capas anteriores, lo que permite un flujo de información más rico y una mejor propagación del gradiente.
+
+* InceptionV3: es una opción sólida. Utiliza filtros convolucionales de diferentes tamaños en paralelo para capturar características a diferentes escalas y niveles de abstracción.
+
+* Xception: Esta arquitectura se basa en la idea de separar las operaciones de convolución espacial y de convolución en canal. Xception utiliza convoluciones separables en lugar de convoluciones estándar, lo que reduce el costo computacional y permite un aprendizaje más eficiente
+
+Red seleccionada:
+
+### InceptionV3
+descripcion tarea pendiente
+ ![](images/inceptionv3onc--oview.png)
+
+InceptionV3 es una arquitectura de red neuronal convolucional que fue desarrollada por Google como parte de la serie de modelos Inception. Fue diseñada específicamente para tareas de clasificación y detección de objetos en imágenes.
+
+La característica distintiva de InceptionV3 es su uso de filtros convolucionales de diferentes tamaños (1x1, 3x3, 5x5) en paralelo para capturar características a diferentes escalas y niveles de abstracción. Estos filtros paralelos son luego concatenados y utilizados en la siguiente capa de la red.
+
+Además, InceptionV3 utiliza lo que se conoce como "Inception blocks" que ayudan a reducir la cantidad de parámetros y la complejidad computacional. Estos bloques combinan las salidas de los filtros de diferentes tamaños mediante operaciones de convolución y concatenación.
+
+InceptionV3 ha sido entrenada en grandes conjuntos de datos, como ImageNet, y ha demostrado un rendimiento sólido en diversas tareas de visión por computadora, incluyendo clasificación de imágenes y detección de objetos.
+
+Puedes encontrar la implementación de InceptionV3 en diferentes frameworks de aprendizaje profundo, como TensorFlow o PyTorch, lo que facilita su uso y ajuste fino en tus propios conjuntos de datos y aplicaciones específicas.
+
+  
+porque elegimos esta red:
+efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
+Inception al comnibar disitnas configuraciones de redes en una sola, cupla con este desociron, y vamos acomprobar los resutlados de los enttrenamisto si uen efecti uanr ed mas compelta es mas precisa.
+
 
 ___
 
