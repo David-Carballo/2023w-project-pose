@@ -834,7 +834,7 @@ Val accuracy: 74.23%
 These results can vary by about 0-2% depending on the exact run
 
 ### InceptionV3 results
-fretne al 76 % de preciosion, efficencet que apenas pudo mejorar elsistema combinada ( con lo que deducioms que modelo combiando con poenpose no aportea valor) hemos conseguido alcanzar con uinceptio un 86% de preciosn , una considerable mejora del 10% en 10  eopcas para el mismo dataset
+In contrast to the 76% accuracy achieved by EfficientNet, which only marginally improved the combined system (indicating that combining the model with pose does not add value), we have managed to achieve an 86% accuracy with InceptionV3. This represents a significant improvement of 10% in just 10 epochs for the same dataset.
 
 #### Conclusions
 The performance increase (outside of training accuracy) stalls at around Epoch 21, with only very slightly higher values to using only the EfficientNet model. Having seen the low test performance from the AnglesMLP model, and high overfitting on both models, we can draw two main conclussions:
@@ -843,9 +843,8 @@ The performance increase (outside of training accuracy) stalls at around Epoch 2
 
 2. The low amount of images provided by the dataset has shown to be a big obstacle through all the different stages of this project, to the point that, even with    techniques aimed at reducing overfitting, we could only slightly mitigate the problem.
 
-### InceptionV3 consucion
-Tras realizar el experimiento con uanr red mas compe,lta,  verificamos que labaja preciosn no se debe solo a la cantaidad de datos, y al overfitting,
-Esta claro,imveptopn esta sindo capaz de generaliza con la misma cantidad de datos mejor.
+### InceptionV3 conclusion:
+After conducting the experiment with a more comprehensive network, we verified that the low accuracy is not solely due to the amount of data and overfitting. It is clear that InceptionV3 is capable of generalizing better with the same amount of data.
 
 <!-- Metrics -->
 ## Metrics
