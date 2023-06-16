@@ -836,6 +836,12 @@ These results can vary by about 0-2% depending on the exact run
 ### InceptionV3 results
 In contrast to the 76% accuracy achieved by EfficientNet, which only marginally improved the combined system (indicating that combining the model with pose does not add value), we have managed to achieve an 86% accuracy with InceptionV3. This represents a significant improvement of 10% in just 10 epochs for the same dataset.
 
+![](images/inceptionloss.png)
+
+![](images/inceptionmatrix.png)
+
+![](images/inceptionprecision.png)
+
 #### Conclusions
 The performance increase (outside of training accuracy) stalls at around Epoch 21, with only very slightly higher values to using only the EfficientNet model. Having seen the low test performance from the AnglesMLP model, and high overfitting on both models, we can draw two main conclussions:
 
