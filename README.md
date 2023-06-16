@@ -183,6 +183,7 @@ InceptionV3 ha sido entrenada en grandes conjuntos de datos, como ImageNet, y ha
 
 Puedes encontrar la implementación de InceptionV3 en diferentes frameworks de aprendizaje profundo, como TensorFlow o PyTorch, lo que facilita su uso y ajuste fino en tus propios conjuntos de datos y aplicaciones específicas.
 
+Guía avanzada de Inception v3
 https://cloud.google.com/tpu/docs/inception-v3-advanced?hl=es-419
   
 porque elegimos esta red:
