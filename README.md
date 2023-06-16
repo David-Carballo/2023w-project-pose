@@ -838,6 +838,8 @@ In contrast to the 76% accuracy achieved by EfficientNet, which only marginally 
 
 ![](images/inceptionloss.png)
 
+![](images/inceptionaccuracy.png)
+
 ![](images/inceptionmatrix.png)
 
 ![](images/inceptionprecision.png)
