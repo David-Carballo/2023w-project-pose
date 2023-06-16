@@ -6,7 +6,8 @@ A project for Postgraduate course Artificial Intelligence with Deep Learning - 2
 
 Branch goal:
 Desde el mismo dataset orginal debemos seleccionar una red neuronal diferente a la de EfficientNetB3, y entrenarla para conseguir resultados similares. 
-Repaso a los modelos y ver los pros/contras de cada uno y seleccionar un modelo adecuado.
+
+Breve inroducción de los modelos aternativos (pros/contras de cada uno) y seleccionar un modelo adecuado.
  
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -65,7 +66,7 @@ Goals:
 * Learn how to create a custom dataset that fits the needs of the project
 * Create a "minimum viable product" that can be expanded upon in the future
 
-Branch goal:
+Branch main goal:
 * Seleccionar una red neuronal diferente a la de EfficientNetB3, y entrenarla para conseguir resultados similares
 ___
 
@@ -188,10 +189,24 @@ https://cloud.google.com/tpu/docs/inception-v3-advanced?hl=es-419
 EfficientNet vs InceptionV3
 
 porque elegimos esta red:
-efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
+Efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
 Inception al comnibar disitnas configuraciones de redes en una sola, cupla con este desociron, y vamos acomprobar los resutlados de los enttrenamisto si uen efecti uanr ed mas compelta es mas precisa.
 
+La arquitectura de InceptionV3 es una red neuronal convolucional profunda que consta de múltiples capas y módulos. Aquí hay una descripción general de la arquitectura de InceptionV3:
 
+Capa de entrada: La imagen de entrada se redimensiona a un tamaño fijo y se pasa a través de una capa de convolución inicial.
+
+Módulo Inception (Inception Module): El bloque de construcción principal de InceptionV3 es el módulo Inception, que se repite varias veces a lo largo de la red. El módulo Inception utiliza filtros convolucionales de diferentes tamaños (1x1, 3x3, 5x5) en paralelo para capturar características a diferentes escalas.
+
+Bloques de reducción (Reduction Blocks): Después de algunos módulos Inception, se utilizan bloques de reducción para reducir la dimensión espacial de la representación. Estos bloques suelen incluir convoluciones 3x3 con pasos más grandes para reducir la resolución espacial.
+
+Capa global de promediado (Global Average Pooling): Después de los bloques de reducción, se aplica una capa global de promediado para reducir la dimensionalidad de las características. Esta capa promedia los valores en cada mapa de características para generar una representación de características compacta y plana.
+
+Capa totalmente conectada (Fully Connected Layer): Se añade una capa totalmente conectada con unidades de salida correspondientes a las clases o categorías que se quieren predecir. La función de activación típica utilizada en la capa de salida es la función softmax para la clasificación multiclase.
+
+En general, InceptionV3 se caracteriza por su uso de filtros convolucionales de diferentes tamaños en paralelo para capturar información contextual en diferentes escalas. Esto permite que la red capture características a diferentes niveles de abstracción y mejore el rendimiento en tareas de clasificación y detección de objetos.
+
+Cabe destacar que la descripción anterior proporciona una visión general de la arquitectura de InceptionV3, pero los detalles completos, incluidos los hiperparámetros específicos, se pueden encontrar en publicaciones y documentación oficial relacionada con InceptionV3.
 ___
 
 <!-- HOW TO -->
