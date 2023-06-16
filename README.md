@@ -157,6 +157,7 @@ Overall, the Combined MLP Model takes advantage of the strengths of both the Eff
 
 ### Alternative networks to EfficientNet:
 Description and then which one we select.
+
 Alternatives to EfficientNetB3, some options of convolutional neural network models:
 
 * ResNet50: It is part of the ResNet family and uses residual connections to enable deep training. ResNet50 is a relatively deep model with 50 layers and has demonstrated outstanding performance in image classification tasks.
@@ -172,7 +173,6 @@ Alternatives to EfficientNetB3, some options of convolutional neural network mod
 Selected network:
 
 ### InceptionV3
- ![](images/inceptionv3_arch.png)
 
 InceptionV3 is a convolutional neural network architecture that was developed by Google as part of the Inception series of models. It was specifically designed for image classification and object detection tasks.
 
@@ -224,6 +224,8 @@ Higher risk of overfitting: Due to its higher capacity and complexity, Inception
 Ultimately, the choice between EfficientNetB3 and InceptionV3 depends on your specific needs, available computational resources, and the dataset you're working with. It's recommended to experiment and evaluate both models on your specific task to determine which one better suits your requirements.
 
 ## InceptionV3 Architecture:
+
+ ![](images/inceptionv3_arch.png)
 
 Inception, by combining different network configurations into one, aligns with this requirement, and we are going to verify through training results if using a more comprehensive model leads to greater accuracy.
 
