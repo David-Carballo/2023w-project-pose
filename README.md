@@ -183,6 +183,7 @@ InceptionV3 ha sido entrenada en grandes conjuntos de datos, como ImageNet, y ha
 
 Puedes encontrar la implementación de InceptionV3 en diferentes frameworks de aprendizaje profundo, como TensorFlow o PyTorch, lo que facilita su uso y ajuste fino en tus propios conjuntos de datos y aplicaciones específicas.
 
+https://cloud.google.com/tpu/docs/inception-v3-advanced?hl=es-419
   
 porque elegimos esta red:
 efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
