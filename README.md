@@ -5,8 +5,8 @@
 A project for Postgraduate course Artificial Intelligence with Deep Learning - 2023 Winter; branch authored by  Francisco Dueñas.
 
 Branch goal:
-Seleccionar una red neuronal diferente a la de EfficientNetB3, y entrenarla para conseguir resultados similares. 
-repaso a los modelos y ver los pros/contras de cada uno y seleccionar un modelo adecuado.
+Desde el mismo dataset orginal debemos seleccionar una red neuronal diferente a la de EfficientNetB3, y entrenarla para conseguir resultados similares. 
+Repaso a los modelos y ver los pros/contras de cada uno y seleccionar un modelo adecuado.
  
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -186,6 +186,7 @@ Puedes encontrar la implementación de InceptionV3 en diferentes frameworks de a
 Guía avanzada de Inception v3
 https://cloud.google.com/tpu/docs/inception-v3-advanced?hl=es-419
   
+EfficientNet vs InceptionV3
 porque elegimos esta red:
 efficenent es una red opytimizada para ocupar poca memoria y relaizar inferencias veloces,ambas caraceristicas no son requerimiento de l sistema y es mas importante una buena recion,que es lo que ha buscado alintenta fusionar didtintos modelos. por ello vamos a utilziar un modelo mas produndo y con una com,nbacion d ehipermapramtros mas completa.
 Inception al comnibar disitnas configuraciones de redes en una sola, cupla con este desociron, y vamos acomprobar los resutlados de los enttrenamisto si uen efecti uanr ed mas compelta es mas precisa.
